@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zgłoszenie przesłane</title>
+    <link rel="stylesheet" href="/css/success.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="panel">
+        <h1>Zgłoszenie przesłane</h1>
+        <h2>Imię</h2>
+        <p><%= application.fname %></p>
+        <h2>Nazwisko</h2>
+        <p><%= application.lname %></p>
+        <h2>Email</h2>
+        <p><%= application.email %></p>
+        <h2>Język</h2>
+        <p><%= application.language %></p>
+        <h2>Data zajęć</h2>
+        <p><%= application.date.toLocaleDateString() %></p>
+        <div class="center">
+          <button onclick="window.location.href='/applications'">
+            Pokaż zgłoszenia
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("https://as2.ftcdn.net/v2/jpg/04/97/72/83/1000_F_497728362_47Hkb9Y2Z7qOJPNq96ya6Bu7Xbj48FV5.jpg") center/cover;
+    z-index: -1;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.panel {
+    margin: 1rem;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    padding: 1.2rem;
+    min-width: 30%;
+    max-width: 35%;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: lightgreen;
+    border-radius: 10px 10px 0 0;
+}
+
+tbody {
+    display: block;
+    max-height: 50vh;
+    overflow-y: auto;
+    border-radius: 0 0 10px 10px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead tr {
+    width: calc(100% - 1em);
+}
+
+tbody tr:hover {
+    background-color: #f0f7ff;
+}
+
+.nav-panel {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: lightgreen;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s linear;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    outline: 2px solid black;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

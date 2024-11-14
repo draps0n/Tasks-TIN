@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/applications.css" />
+    <title>Przyjęte zgłoszenia</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="panel">
+        <h1>Przyjęte zgłoszenia</h1>
+        <table class="scrollable-table">
+          <thead>
+            <tr>
+              <th>Imie</th>
+              <th>Nazwisko</th>
+              <th>E-mail</th>
+              <th>Język</th>
+              <th>Data zajęć</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% applications.forEach((application) => { %>
+            <tr>
+              <td><%= application.fname %></td>
+              <td><%= application.lname %></td>
+              <td><%= application.email %></td>
+              <td><%= application.language %></td>
+              <td><%= application.date.toLocaleDateString() %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <div class="nav-panel">
+          <div class="nav-panel">
+            <button onclick="window.location.href='/applications'">
+              Odśwież
+            </button>
+            <button onclick="window.location.href='/applications/form'">
+              Zgłoś się!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

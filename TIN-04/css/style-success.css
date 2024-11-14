@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Afacad Flux", sans-serif;
+  background-color: lightgreen;
+  font-size: 1.3rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+}

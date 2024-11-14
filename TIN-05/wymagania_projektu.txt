@@ -1,0 +1,20 @@
+Wymagania funkcjonalne:
+- przechowywanie informacji o nauczycielach, kursantach oraz użytkownikach
+- przechowywanie informacji o kursach (odbywających się regularnie co tydzień o ustalonych porach)
+- logowanie i rejestracja
+- przeglądanie panelu z ogólnymi informacjami o szkole językowej dla gościa
+- zapisywania się na dostępne kursy językowe
+- wyświetlanie aktualności dotyczących szkoły językowej
+- tworzenie wirtualnych grup e-learningowych dla uczestników kursów
+- możliwość odsyłania zadań domowych przez kursantów
+- możliwość udostępniania materiałów z zajęć przez nauczycieli
+- możliwość wystawiania ocen przez nauczyciela oraz ich wyświetlania przez kursanta
+- wyświetlanie ważnych komunikatów odnośnie danego kursu (np. o odwołaniu zajęć)
+- rejestracja nauczyciela w systemie
+- zatwierdzanie zgłoszenia kursanta
+- czat pracownika z osobą zgłaszającą się na kurs w celu ustalenia szczegółów / alternatywnych kursów
+- możliwość realizowania płatności za kurs
+- panel administracyjny - do zarządzania kursami, nauczucielami itd. po zalogowaniu się na konto administratora
+- personalizacja profilu nauczyciela oraz kursanta
+- możliwość przeprowadzania ankiet
+- rezerwacja konsultacji u wybranego nauczyciela

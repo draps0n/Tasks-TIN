@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Afacad Flux", sans-serif;
+  background-color: white;
+  font-size: 1.3rem;
+}
+
+.blured-image {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+}
+
+.glass {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+}
+
+.skyline {
+  background-image: url("https://as2.ftcdn.net/v2/jpg/04/97/72/83/1000_F_497728362_47Hkb9Y2Z7qOJPNq96ya6Bu7Xbj48FV5.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  resize: both;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: white;
+}
+
+.header img {
+  max-width: 4rem;
+  max-height: 4rem;
+}
+
+.header h1 {
+  display: inline-block;
+  font-family: "Edu AU VIC WA NT Guides", cursive;
+}
+
+div.header.fill {
+  width: 4rem;
+  height: 4rem;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+ul.navbar li {
+  float: left;
+}
+
+ul.navbar li:hover {
+  background-color: rgb(139, 139, 139);
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.9rem;
+}
+
+.container {
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.left-column {
+  box-sizing: border-box;
+  padding: 0.7rem;
+  width: 70%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.long-desc {
+  text-align: justify;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+}
+
+.gallery-item {
+  border: 1px solid #ccc;
+  float: left;
+  width: 200px;
+}
+
+.flag {
+  display: block;
+  aspect-ratio: 3 / 2;
+  margin: 0.5rem auto;
+  width: 90%;
+  height: auto;
+}
+
+.img-description {
+  margin: 10px;
+  text-align: center;
+  vertical-align: center;
+}
+
+#prices table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#prices table,
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+#prices th {
+  background-color: rgb(207, 255, 163);
+}
+
+#prices tr:nth-child(odd) {
+  background-color: rgb(237, 237, 237);
+}
+
+.in-card-element {
+  border-radius: 0.4rem;
+  box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.15);
+}
+
+.reasons-list {
+  background-color: white;
+  font-size: 1.2rem;
+  font-family: "Gloria Hallelujah", cursive;
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.reasons-list li {
+  padding: 0 0 0 1rem;
+}
+
+.reasons-list li:not(:last-child) {
+  border-bottom: 1px solid lightblue;
+}
+
+.reasons-list li:first-child {
+  margin-top: 1rem;
+}
+
+.reasons-list li:last-child {
+  margin-bottom: 1rem;
+}
+
+.right-column {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 30%;
+  min-height: 100%;
+}
+
+.img-news {
+  display: block;
+  margin: 0.4rem auto;
+  width: 100%;
+  height: auto;
+}
+
+.footer {
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+@media print {
+  body {
+    font-family: "Merriweather", serif;
+    font-size: 1rem;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  #prices table,
+  th,
+  td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid gray;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    display: block;
+  }
+
+  .left-column {
+    width: 100%;
+  }
+
+  .right-column {
+    width: 100%;
+  }
+}
