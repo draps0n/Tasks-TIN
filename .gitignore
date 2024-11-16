@@ -37,3 +37,8 @@ jspm_packages/
 
 # Zip files
 *.zip
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db

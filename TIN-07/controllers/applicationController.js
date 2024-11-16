@@ -1,4 +1,4 @@
-const Application = require("../models/application").default;
+const Application = require("../models/application");
 
 class ApplicationController {
   static async getApplicationForm(req, res) {
