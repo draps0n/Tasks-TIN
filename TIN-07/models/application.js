@@ -1,7 +1,7 @@
 const { openDb } = require("../config/database");
 
 const languages = {
-  ang: "Angielski",
+  eng: "Angielski",
   ger: "Niemiecki",
   fre: "Francuski",
   spa: "Hiszpański",
