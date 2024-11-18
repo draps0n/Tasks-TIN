@@ -23,7 +23,9 @@
           </thead>
           <tbody>
             <% applications.forEach((application) => { %>
-            <tr>
+            <tr
+              onclick="window.location.href='/applications/<%= application.id %>'"
+            >
               <td><%= application.fname %></td>
               <td><%= application.lname %></td>
               <td><%= application.email %></td>

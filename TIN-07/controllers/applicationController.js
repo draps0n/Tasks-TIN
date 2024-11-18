@@ -2,7 +2,7 @@ const Application = require("../models/application");
 
 class ApplicationController {
   static async getApplicationForm(req, res) {
-    res.render("form.html");
+    res.render("form.ejs", { title: "Formularz zgłoszeniowy" });
   }
 
   static async getApplications(req, res) {
@@ -21,6 +21,7 @@ class ApplicationController {
   static async postApplicationForm(req, res) {
     try {
       const application = new Application(
+        null,
         req.body.fname,
         req.body.lname,
         req.body.email,
@@ -28,7 +29,10 @@ class ApplicationController {
         new Date(req.body.date).getTime() / 1000
       );
       await application.save();
-      res.render("success.ejs", { application });
+      res.render("application.ejs", {
+        title: "Zgłoszenie przesłane",
+        application,
+      });
     } catch (err) {
       console.error(err);
       res.status(500).render("error.ejs", {
@@ -36,6 +40,22 @@ class ApplicationController {
         errorMessage: "Wystąpił błąd podczas zapisywania zgłoszenia",
       });
     }
+  }
+
+  static async getApplicationById(req, res) {
+    const application = await Application.getById(req.params.id);
+    if (!application) {
+      res.status(404).render("error.ejs", {
+        errorCode: 404,
+        errorMessage: "Nie znaleziono zgłoszenia",
+      });
+      return;
+    }
+
+    res.render("application.ejs", {
+      title: `Zgłoszenie nr ${application.id}`,
+      application,
+    });
   }
 }
 

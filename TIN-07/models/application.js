@@ -9,7 +9,8 @@ const languages = {
 };
 
 class Application {
-  constructor(lname, nazwisko, email, lang, date) {
+  constructor(id, lname, nazwisko, email, lang, date) {
+    this.id = id;
     this.fname = lname;
     this.lname = nazwisko;
     this.email = email;
@@ -19,6 +20,14 @@ class Application {
 
   get language() {
     return languages[this.lang];
+  }
+
+  get formattedDate() {
+    return this.date.toLocaleDateString("pl-PL", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
   }
 
   static async getAll() {
@@ -31,6 +40,7 @@ class Application {
           resolve(
             rows.map((row) => {
               return new Application(
+                row.id,
                 row.imie,
                 row.nazwisko,
                 row.email,
@@ -39,6 +49,34 @@ class Application {
               );
             })
           );
+        }
+
+        db.close();
+      });
+    });
+  }
+
+  static async getById(id) {
+    const db = openDb();
+    return new Promise((resolve, reject) => {
+      db.get("SELECT * FROM Zgloszenie WHERE id = ?", [id], (err, row) => {
+        if (err) {
+          reject(err);
+        } else {
+          if (!row) {
+            resolve(null);
+          } else {
+            resolve(
+              new Application(
+                row.id,
+                row.imie,
+                row.nazwisko,
+                row.email,
+                row.jezyk,
+                row.data
+              )
+            );
+          }
         }
 
         db.close();
