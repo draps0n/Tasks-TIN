@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosAdd } from "react-icons/io";
-import Application from "./application";
+import { Application, languages } from "./application";
 import ApplicationItem from "./ApplicationItem";
 import "./ApplicationList.css";
 
@@ -55,34 +55,35 @@ function ApplicationList() {
     setApplications(applications.filter((app) => app.id !== id));
   };
 
+  const validator = {
+    fname: {
+      test: (value) => value.length >= 3,
+      errorMessage: "Minimum 3 znaki",
+    },
+    lname: {
+      test: (value) => value.length >= 3,
+      errorMessage: "Minimum 3 znaki",
+    },
+    email: {
+      test: (value) => /\S+@\S+\.\S+/.test(value),
+      errorMessage: "Niepoprawny format email",
+    },
+    lang: {
+      test: (value) => !!languages[value],
+      errorMessage: "Pole wymagane",
+    },
+    date: {
+      test: (value) => !!value,
+      errorMessage: "Wybierz datę",
+    },
+  };
+
   const validateField = (name, value) => {
-    let error = "";
-    switch (name) {
-      case "fname":
-      case "lname":
-        if (value.length < 3) {
-          error = "Minimum 3 znaki";
-        }
-        break;
-      case "email":
-        if (!/\S+@\S+\.\S+/.test(value)) {
-          error = "Niepoprawny format email";
-        }
-        break;
-      case "lang":
-        if (!value) {
-          error = "Pole wymagane";
-        }
-        break;
-      case "date":
-        if (!value) {
-          error = "Wybierz datę";
-        }
-        break;
-      default:
-        break;
+    let validatorObj = validator[name];
+    if (!validatorObj.test(value)) {
+      return validatorObj.errorMessage;
     }
-    return error;
+    return "";
   };
 
   const handleChange = (e) => {
@@ -169,14 +170,19 @@ function ApplicationList() {
             </td>
             <td>
               <div className="input-container">
-                <input
-                  type="text"
-                  placeholder="Język"
+                <select
                   name="lang"
                   value={formValues.lang}
                   onChange={handleChange}
                   className={`input-field ${errors.lang ? "error" : ""}`}
-                />
+                >
+                  <option value="">Wybierz język</option>
+                  {Object.entries(languages).map(([key, value]) => (
+                    <option key={key} value={key}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
                 {errors.lang && (
                   <div className="error-message">{errors.lang}</div>
                 )}

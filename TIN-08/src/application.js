@@ -1,4 +1,4 @@
-const languages = {
+export const languages = {
   eng: "Angielski",
   ger: "Niemiecki",
   fre: "Francuski",
@@ -6,7 +6,7 @@ const languages = {
   ita: "Włoski",
 };
 
-class Application {
+export class Application {
   constructor(id, lname, nazwisko, email, lang, date) {
     this.id = id;
     this.fname = lname;
@@ -28,5 +28,3 @@ class Application {
     });
   }
 }
-
-export default Application;
