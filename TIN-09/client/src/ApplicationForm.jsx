@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { languages } from "./application";
 import "./ApplicationForm.css";
+import { useNavigate } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 
 function ApplicationForm() {
+  const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState("");
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     fname: "",
@@ -11,6 +17,10 @@ function ApplicationForm() {
     lang: "",
     date: "",
   });
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const validator = {
     fname: {
@@ -81,17 +91,33 @@ function ApplicationForm() {
             date: "",
           });
           setErrors({});
+          setModalContent("Zgłoszenie zostało przesłane.");
         })
         .catch((error) => {
           console.error("Error:", error);
+          setModalContent("Wystąpił błąd podczas przesyłania zgłoszenia.");
+        })
+        .finally(() => {
+          setShowModal(true);
         });
     } else {
       console.log("Form contains errors.");
+      setModalContent("W formularzu są błędy!");
+      setShowModal(true);
     }
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+    if (modalContent === "Zgłoszenie zostało przesłane.")
+      navigate("/applications");
+  };
+
   return (
-    <div>
+    <div className="form-container">
+      <button className="top-left-button" onClick={handleGoBack}>
+        <IoIosArrowBack />
+      </button>
       <h1>Formularz zgłoszeniowy</h1>
       <form onSubmit={handleSubmit}>
         <label>Imię</label>
@@ -141,6 +167,14 @@ function ApplicationForm() {
         {errors.date && <div className="error-message">{errors.date}</div>}
         <input id="submit" type="submit" value="Wyślij zgłoszenie" />
       </form>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{modalContent}</h2>
+            <button onClick={handleCloseModal}>OK</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

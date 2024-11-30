@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ApplicationItem from "./ApplicationListItem";
+import { useNavigate } from "react-router-dom";
 import "./ApplicationList.css";
 import { Application } from "./application";
+import { IoIosArrowBack } from "react-icons/io";
 
 function ApplicationList() {
+  const navigate = useNavigate();
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
@@ -47,8 +50,19 @@ function ApplicationList() {
     }
   };
 
+  const handleAdd = () => {
+    navigate("form");
+  };
+
+  const handleGoBack = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="ApplicationList.css">
+    <div className="application-list-container">
+      <button className="top-left-button" onClick={handleGoBack}>
+        <IoIosArrowBack /> Powrót
+      </button>
       <h1>Lista zgłoszeń</h1>
       <table className="scrollable-table">
         <thead>
@@ -71,6 +85,9 @@ function ApplicationList() {
           ))}
         </tbody>
       </table>
+      <button className="bottom-right-button" onClick={handleAdd}>
+        Dodaj aplikację
+      </button>
     </div>
   );
 }
