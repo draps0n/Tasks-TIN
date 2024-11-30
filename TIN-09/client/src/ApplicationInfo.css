@@ -8,6 +8,7 @@ h2 {
     margin-bottom: 0.2rem;
     font-size: 1.5rem;
     text-align: center;
+    font-weight: inherit;
 }
 
 p {
@@ -34,8 +35,10 @@ p:hover {
     cursor: not-allowed;
 }
 
-.center {
-    text-align: center;
+.button-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
@@ -61,4 +64,31 @@ button:hover {
 
 button:active {
     transform: translateY(2px);
+}
+
+.delete-button-text {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s linear;
+}
+
+.delete-button-text:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    outline: 2px solid black;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.app-info-container {
+    position: relative
 }

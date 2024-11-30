@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Application } from "./application";
 import { useNavigate, useParams } from "react-router-dom";
 import "./ApplicationInfo.css";
+import { FaTrash } from "react-icons/fa";
+import { IoIosArrowBack } from "react-icons/io";
 
 function ApplicationInfo() {
   const [application, setApplication] = useState(
@@ -45,6 +47,8 @@ function ApplicationInfo() {
     navigate("/applications");
   };
 
+  const handleDelete = async () => {};
+
   if (loading) {
     return <h1>Ładowanie...</h1>;
   }
@@ -54,8 +58,15 @@ function ApplicationInfo() {
   }
 
   return (
-    <div>
-      <h1>Zgłoszenie nr {application.id}</h1>
+    <div className="app-info-container">
+      <button className="top-left-button" onClick={handleRedirect}>
+        <IoIosArrowBack /> Powrót
+      </button>
+      <h1>
+        Zgłoszenie
+        <br />
+        nr {application.id}
+      </h1>
       <h2>Imię</h2>
       <p>{application.fname}</p>
       <h2>Nazwisko</h2>
@@ -66,8 +77,10 @@ function ApplicationInfo() {
       <p>{application.language}</p>
       <h2>Data zajęć</h2>
       <p>{application.formattedDate}</p>
-      <div className="center">
-        <button onClick={handleRedirect}>Pokaż zgłoszenia</button>
+      <div className="button-panel">
+        <button onClick={handleDelete} className="delete-button-text">
+          <FaTrash /> Usuń
+        </button>
       </div>
     </div>
   );
