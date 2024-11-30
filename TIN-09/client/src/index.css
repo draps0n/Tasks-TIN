@@ -1,0 +1,49 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Afacad Flux", sans-serif;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://as2.ftcdn.net/v2/jpg/04/97/72/83/1000_F_497728362_47Hkb9Y2Z7qOJPNq96ya6Bu7Xbj48FV5.jpg") center/cover;
+  z-index: -1;
+}
+
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.5px);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.panel {
+  margin: 1rem;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  padding: 1.2rem;
+  min-width: 30%;
+  max-width: 60%;
+  border-radius: 10px;
+}

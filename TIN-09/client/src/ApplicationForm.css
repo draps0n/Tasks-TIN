@@ -1,0 +1,106 @@
+h1 {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+input,
+select {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.8rem;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.1s ease-in-out;
+    outline: none;
+    border: none;
+}
+
+input:focus,
+select:focus,
+input:focus.wrong,
+select:focus.wrong {
+    outline: 2px solid black;
+}
+
+input:hover,
+select:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+input.wrong,
+select.wrong {
+    outline: 2px solid red;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+div.error-message {
+    color: red;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in-out;
+}
+
+#submit {
+    outline: none;
+    background-color: lightgreen;
+    border-radius: 10px;
+    padding: 0.3rem;
+    margin-top: 1rem;
+}
+
+#submit:hover {
+    transform: translateY(-2px);
+    transition: transform 0.1s linear;
+    outline: 2px solid black;
+}
+
+#submit:active {
+    transform: translateY(2px);
+}
