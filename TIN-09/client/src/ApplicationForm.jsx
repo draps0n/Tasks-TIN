@@ -116,9 +116,11 @@ function ApplicationForm() {
   return (
     <div className="form-container">
       <button className="top-left-button" onClick={handleGoBack}>
-        <IoIosArrowBack />
+        <IoIosArrowBack /> Powrót
       </button>
-      <h1>Formularz zgłoszeniowy</h1>
+      <h1>
+        Formularz<br></br>zgłoszeniowy
+      </h1>
       <form onSubmit={handleSubmit}>
         <label>Imię</label>
         <input
