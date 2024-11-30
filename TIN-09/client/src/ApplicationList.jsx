@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ApplicationItem from "./ApplicationItem";
+import ApplicationItem from "./ApplicationListItem";
 import "./ApplicationList.css";
 import { Application } from "./application";
 

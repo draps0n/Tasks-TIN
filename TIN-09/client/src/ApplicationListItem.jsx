@@ -1,9 +1,14 @@
-import "./ApplicationItem.css";
+import "./ApplicationListItem.css";
+import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 
 function ApplicationItem({ application, onDelete }) {
+  const navigate = useNavigate();
+  const onRowClick = (id) => {
+    navigate(`/applications/${id}`);
+  };
   return (
-    <tr>
+    <tr onClick={() => onRowClick(application.id)} className="clickable">
       <td>{application.fname}</td>
       <td>{application.lname}</td>
       <td>{application.email}</td>
