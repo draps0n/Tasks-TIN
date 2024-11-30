@@ -92,6 +92,17 @@ class Application {
       );
     });
   }
+
+  async delete() {
+    const db = openDb();
+    return new Promise((resolve, reject) => {
+      db.run("DELETE FROM Zgloszenie WHERE id = ?", [this.id], (err) => {
+        if (err) reject(err);
+        else resolve();
+        db.close();
+      });
+    });
+  }
 }
 
 module.exports = Application;

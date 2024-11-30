@@ -45,6 +45,19 @@ class ApplicationController {
 
     res.json(application);
   }
+
+  static async deleteApplication(req, res) {
+    const application = await Application.getById(req.params.id);
+    if (!application) {
+      res.status(404).json({
+        error: "Nie znaleziono zgłoszenia",
+      });
+      return;
+    }
+
+    await application.delete();
+    res.json(application);
+  }
 }
 
 module.exports = ApplicationController;

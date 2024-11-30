@@ -27,7 +27,8 @@ function ApplicationList() {
       .catch((error) => console.error(error));
   }, []);
 
-  const deleteApplication = async (id) => {
+  const deleteApplication = async (event, id) => {
+    event.stopPropagation();
     try {
       const response = await fetch(`http://localhost:5000/applications/${id}`, {
         method: "DELETE",

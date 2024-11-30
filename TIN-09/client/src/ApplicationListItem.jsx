@@ -17,7 +17,7 @@ function ApplicationItem({ application, onDelete }) {
       <td>
         <button
           className="delete-button"
-          onClick={() => onDelete(application.id)}
+          onClick={(e) => onDelete(e, application.id)}
         >
           <FaTrash />
         </button>
