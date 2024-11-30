@@ -1,19 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <h1>Home Page</h1>
       <nav>
-        <ul>
-          <li>
-            <Link to="/applications">Applications</Link>
-          </li>
-          <li>
-            <Link to="/applications/form">Application Form</Link>
-          </li>
-        </ul>
+        <div className="button-container">
+          <button
+            onClick={() => navigate("/applications")}
+            className="nav-button"
+          >
+            Zgłoszenia
+          </button>
+          <button
+            onClick={() => navigate("/applications/form")}
+            className="nav-button"
+          >
+            Zgłoś się
+          </button>
+        </div>
       </nav>
     </div>
   );
