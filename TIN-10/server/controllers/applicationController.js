@@ -46,6 +46,25 @@ class ApplicationController {
     res.json(application);
   }
 
+  static async updateApplication(req, res) {
+    const application = await Application.getById(req.params.id);
+    if (!application) {
+      res.status(404).json({
+        error: "Nie znaleziono zgłoszenia",
+      });
+      return;
+    }
+
+    application.fname = req.body.fname;
+    application.lname = req.body.lname;
+    application.email = req.body.email;
+    application.lang = req.body.lang;
+    application.date = new Date(req.body.date).getTime();
+
+    await application.save();
+    res.json(application);
+  }
+
   static async deleteApplication(req, res) {
     const application = await Application.getById(req.params.id);
     if (!application) {
