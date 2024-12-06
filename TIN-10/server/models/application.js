@@ -78,14 +78,7 @@ class Application {
       if (this.id) {
         db.run(
           "UPDATE Zgloszenie SET imie = ?, nazwisko = ?, email = ?, jezyk = ?, data = ? WHERE id = ?",
-          [
-            this.fname,
-            this.lname,
-            this.email,
-            this.lang,
-            new Date(this.date).getTime(),
-            this.id,
-          ],
+          [this.fname, this.lname, this.email, this.lang, this.date, this.id],
           function (err) {
             if (err) reject(err);
             else resolve(this.changes);
@@ -95,13 +88,7 @@ class Application {
       } else {
         db.run(
           "INSERT INTO Zgloszenie (imie, nazwisko, email, jezyk, data) VALUES (?, ?, ?, ?, ?)",
-          [
-            this.fname,
-            this.lname,
-            this.email,
-            this.lang,
-            new Date(this.date).getTime(),
-          ],
+          [this.fname, this.lname, this.email, this.lang, this.date],
           function (err) {
             if (err) reject(err);
             else resolve(this.lastID);
