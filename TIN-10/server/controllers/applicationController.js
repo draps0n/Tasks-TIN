@@ -21,7 +21,7 @@ class ApplicationController {
         req.body.lname,
         req.body.email,
         req.body.lang,
-        new Date(req.body.date).getTime()
+        Math.floor(new Date(req.body.date).getTime() / 1000)
       );
       const id = await application.save();
       application.id = id;
@@ -55,11 +55,12 @@ class ApplicationController {
       return;
     }
 
-    application.fname = req.body.fname;
-    application.lname = req.body.lname;
-    application.email = req.body.email;
-    application.lang = req.body.lang;
-    application.date = new Date(req.body.date).getTime();
+    if (req.body.fname) application.fname = req.body.fname;
+    if (req.body.lname) application.lname = req.body.lname;
+    if (req.body.email) application.email = req.body.email;
+    if (req.body.lang) application.lang = req.body.lang;
+    if (req.body.date)
+      application.date = Math.floor(new Date(req.body.date).getTime() / 1000);
 
     await application.save();
     res.json(application);

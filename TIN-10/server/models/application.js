@@ -83,7 +83,7 @@ class Application {
             this.lname,
             this.email,
             this.lang,
-            new Date(this.date).getTime() / 1000,
+            new Date(this.date).getTime(),
             this.id,
           ],
           function (err) {
@@ -100,7 +100,7 @@ class Application {
             this.lname,
             this.email,
             this.lang,
-            new Date(this.date).getTime() / 1000,
+            new Date(this.date).getTime(),
           ],
           function (err) {
             if (err) reject(err);
